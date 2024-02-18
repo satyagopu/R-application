@@ -1,0 +1,17 @@
+.card {
+    
+    display: flex;
+    flex-direction: row;
+    list-style-type: none; /* Remove default list-style */
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+
+  }
+  
+  
+  .selected {
+    background-color: rgb(255, 215, 215); /* Add styles for selected card */
+  }
+  
