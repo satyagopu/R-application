@@ -3,7 +3,7 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faSearch, faCube } from '@fortawesome/free-solid-svg-icons';
 import Card from './Components/Card';
-import Fuse from 'fuse.js'; // Import fuse.js for fuzzy search
+import Fuse from 'fuse.js'; 
 
 const App: React.FC = () => {
   const [packages, setPackages] = useState<Package[]>([]);
@@ -13,7 +13,6 @@ const App: React.FC = () => {
   const [loading,setLoading]=useState<Boolean>(true)
 
   useEffect(() => {
-    // Fetch the last 10 packages from the API
     fetch('https://600eda693bb1d100179e04dc.mockapi.io/api/v1/packages')
       .then((response) => response.json())
       .then((data) => {
@@ -28,11 +27,11 @@ const App: React.FC = () => {
   };
 
   const handleSearch = () => {
-    // Implement fuzzy search logic using fuse.js
+    
     const fuse = new Fuse(packages, {
-      keys: ['name'], // Specify the keys to search in
+      keys: ['name'], 
       includeScore: true,
-      threshold: 0.4, // Adjust the threshold for fuzzy matching
+      threshold: 0.4, 
     });
 
     const result = fuse.search(searchQuery);
@@ -128,7 +127,7 @@ function isEmailAddress(str: string) {
 function formatAuthors(authors: any) {
   if (typeof authors !== 'string') {
     console.error('Authors is not a string:', authors);
-    return authors; // Return the variable as is if it's not a string
+    return authors; 
   }
 
   const parts = authors.split(/[<>]/);
